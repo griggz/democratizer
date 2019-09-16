@@ -1,5 +1,6 @@
 import os
 import dj_database_url
+
 # import environ
 
 # env = environ.Env(
@@ -22,7 +23,8 @@ SECRET_KEY = 'check host location'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['www.harvstr.io', 'harvstr.io', 'harvstr.herokuapp.com', 'harvstr-staging.herokuapp.com']
+ALLOWED_HOSTS = ['www.democratizer.io', 'democratizer.io',
+                 'democratizer-staging.herokuapp.com']
 
 # EMAIL_HOST = 'mail.name.com'
 # EMAIL_HOST_USER = 'wayne@vvayne.io'
@@ -47,6 +49,8 @@ INSTALLED_APPS = [
     'django_hosts',
     'rest_framework',
     'pagedown',
+    'markdown_deux',
+    'corsheaders',
     'django_celery_beat',
     'django_celery_results',
     # My Apps
@@ -87,7 +91,7 @@ LOGIN_EXEMPT_URLS = [
 ROOT_URLCONF = 'harvstr.urls'
 ROOT_HOSTCONF = 'harvstr.hosts'
 DEFAULT_HOST = 'www'
-DEFAULT_REDIRECT_URL = 'http://www.harvstr.io'
+# DEFAULT_REDIRECT_URL = 'http://www.harvstr.io'
 
 TEMPLATES = [
     {
@@ -169,9 +173,13 @@ MEDIA_URL = "/media/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "live-static", "media-root")
 
-# CELERY REQUIREMENTS
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    )
+}
 
-# CELERY_BROKER_URL = os.environ['REDIS_URL']
+CELERY_BROKER_URL = os.environ['REDIS_URL']
 CELERY_RESULT_BACKEND = 'django-db'
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
@@ -179,7 +187,7 @@ CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = TIME_ZONE
 
 # REACT VARIABLES
-BUILD_JSON = 'utils/build.json'
+BUILD_JSON = os.path.join(BASE_DIR, "frontend/utils/build.json")
 
 # SCRAPE
 IGNORE_WORDS_JSON = 'src/scrape/scripts/text_analysis/constants/words_ignore.json'

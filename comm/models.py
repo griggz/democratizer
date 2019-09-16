@@ -25,7 +25,7 @@ class Comms(models.Model):
         (landing, 'landing'),
     ]
     site_location = models.CharField(
-        max_length=2,
+        max_length=120,
         choices=APP_CHOICES
     )
     author = models.ForeignKey(settings.AUTH_USER_MODEL, default=1,

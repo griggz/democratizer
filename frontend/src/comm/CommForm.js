@@ -47,7 +47,7 @@ class CommForm extends Component {
         .then(function (response) {
           return response.json()
         }).then(function (responseData) {
-        thisComp.setState({redirectLink: `/site-management/comms/${responseData.slug}`});
+        thisComp.setState({redirectLink: `/site-management/comms/${responseData.slug}/`});
         if (thisComp.props.newCommItemCreated) {
           thisComp.props.newCommItemCreated(responseData)
         }

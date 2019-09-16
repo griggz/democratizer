@@ -294,13 +294,12 @@ nav {
 
 #register {
   color: #FF5A09;
+  background-color: #18181E;
   text-align: center;
   font-family: Raleway, serif;
   font-size: 16px;
-}
-
-#register a {
-  color: white;
+  margin: 0;
+  padding: 0;
 }
 
 #register a:hover {

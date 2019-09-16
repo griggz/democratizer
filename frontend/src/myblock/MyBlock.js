@@ -1,9 +1,5 @@
 import React, {Component} from 'react'
 import 'whatwg-fetch'
-// import cookie from 'react-cookies'
-// import {Link} from 'react-router-dom'
-// import {Redirect} from "react-router-dom";
-// import Comms from '../comm/Comms';
 
 class MyBlock extends Component {
     constructor(props) {

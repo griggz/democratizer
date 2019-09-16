@@ -36,7 +36,11 @@ body {
   max-width: calc(1.5em + 75rem + 2px);
 
   p {
-    display: unset;
+    font-size: 1.5rem;
+  }
+
+  li {
+    font-size: 1.5rem;
   }
 
   h1 {
@@ -84,6 +88,7 @@ body {
 
 .scrape_form {
   width: 100%;
+  padding-top: 5rem;
 }
 
 #register {
@@ -107,7 +112,7 @@ body {
 }
 
 form {
-  max-width: calc(1.5em + 75rem + 2px);
+  max-width: calc(9em + 75rem + 2px);
   display: block;
   margin-left: auto;
   margin-right: auto;

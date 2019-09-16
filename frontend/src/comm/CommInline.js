@@ -14,7 +14,7 @@ class CommInline extends Component {
                 {comm !== undefined ? <div className={elClass}>
                         <h1 class="comms-title"><Link
                             maintainScrollPosition={false} to={{
-                            pathname: `/site-management/comms/${comm.slug}`,
+                            pathname: `/site-management/comms/${comm.slug}/`,
                             state: {fromDashboard: false}
                         }}>{comm.title}</Link>&nbsp;
                             <small className="publish_date text-muted"
@@ -27,7 +27,7 @@ class CommInline extends Component {
                                 source={comm.content.slice(0, 200).trim().concat('...')}/>
                             <Link
                                 maintainScrollPosition={false} to={{
-                                pathname: `/site-management/comms/${comm.slug}`,
+                                pathname: `/site-management/comms/${comm.slug}/`,
                                 state: {fromDashboard: false}
                             }}>Read more
                             </Link></p>

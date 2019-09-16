@@ -21,10 +21,10 @@ urlpatterns = [
     # Homepage Link
     path('walking', TemplateView.as_view(template_name='landing/walking.html')),
     path('api/landing/', include('landing.urls')),
-    re_path(r'^', TemplateView.as_view(template_name='landing/react.html'), name='landing'),
+    re_path(r'^$', TemplateView.as_view(template_name='landing/react.html'), name='landing'),
 
 ]
 
-if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# if settings.DEBUG:
+#     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+#     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

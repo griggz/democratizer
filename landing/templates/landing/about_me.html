@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block head %}
+  <link rel="stylesheet" href='{% static 'home/css/about.css' %}'/>
+{% endblock %}
+
+{% block content %}
+  {% for obj in AboutVV %}
+    {% include "posts/messages_display.html" %}
+    <div class="container" id="detail">
+      <div class="row">
+        <div class="thumbnail">
+          {% if obj.unsplash_url %}
+            <img src="{{ obj.unsplash_url }}" class="img-responsive" alt="img"/>
+            <small class="image_source"><a href="https://unsplash.com/photos/{{ obj.post_image }}" TARGET="_blank">
+              Image Source</a></small>
+          {% endif %}
+          <div class="caption post-detail-item">
+            <h1 class="title">{{ obj.title }}</h1>
+            {{ obj.get_markdown }}
+            <hr/>
+            <p align="right">
+              <small>Updated: {{ obj.updated|timesince }} ago</small>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+
+{% endblock %}
+
+
+
+
+

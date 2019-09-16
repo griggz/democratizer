@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+  <link rel="stylesheet" href='{% static "scrape/css/scrape.css" %}'/>
+  {# D3 Library #}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.12/d3.js"></script>
+{% endblock head %}
+
+{% block content %}
+
+  <div id='root'></div>
+
+{% endblock content %}

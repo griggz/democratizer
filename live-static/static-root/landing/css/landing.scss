@@ -1,0 +1,414 @@
+@import url(https://fonts.googleapis.com/css?family=Josefin+Slab|Saira+Extra+Condensed:100,300,400,900&display=swap);
+
+nav {
+  background-color: #18181E;
+}
+
+// Vertical Line
+.vl {
+  border-left: 1px solid white;
+  //height: 100%;
+  margin: 1rem;
+  animation: line 1s linear forwards;
+
+  @media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    border-top: 1px solid white;
+    border-left: 0;
+    width: 100%;
+    margin: 1rem;
+    animation: line-2 1s linear forwards;
+    @keyframes line-2 {
+      from {
+        left: 50%;
+        width: 0;
+      }
+      to {
+        left: 5%;
+        width: 100%;
+      }
+    }
+  }
+  @media (max-width: 1060px) {
+    border-top: 1px solid white;
+    border-left: 0;
+    width: 100%;
+    margin: 1rem;
+    animation: line-2 1s linear forwards;
+    @keyframes line-2 {
+      from {
+        left: 50%;
+        width: 0;
+      }
+      to {
+        left: 5%;
+        width: 100%;
+      }
+    }
+  }
+  @keyframes line {
+    from {
+      top: 50%;
+      height: 0;
+    }
+    to {
+      bottom: 5%;
+      height: 100%;
+    }
+  }
+}
+
+// Top Section
+.fork {
+  display: flex;
+  flex-direction: column;
+  padding-top: 13%;
+  padding-bottom: 21%;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  background-color: #18181E;
+  border-bottom: 1px solid #18181E;
+  box-shadow: 0 20px 30px 0 #18181E;
+
+  @media only screen and (max-width: 1060px) {
+    padding-bottom: 5%;
+
+  }
+
+  @media only screen and (max-width: 900px) {
+    padding-bottom: 20%;
+  }
+
+
+  @media only screen and (max-width: 768px) {
+    padding-bottom: 20%;
+  }
+
+}
+
+//Interior
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1em;
+  text-align: center;
+  font-family: "Saira Extra Condensed", serif;
+
+  @media (min-width: 1060px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+//About Section With Contact Card
+.about {
+  //background-color: whitesmoke;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(92, 92, 106, 0.8)), to(rgba(248, 250, 255, 0.8)));
+  background: linear-gradient(to bottom, rgba(92, 92, 106, 0.8) 0%, rgba(248, 250, 255, 0.8) 100%);
+  border-bottom: 1px solid #f8faff;
+  box-shadow: 0 15px 10px -15px #f8faff;
+  padding: 7em .5em;
+  text-align: left;
+  font-family: "Saira Extra Condensed", serif;
+  font-weight: 300;
+
+  #card-animate {
+    -webkit-animation: flip-in-ver-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: flip-in-ver-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  }
+
+
+  @-webkit-keyframes flip-in-ver-left {
+    0% {
+      -webkit-transform: rotateY(80deg);
+      transform: rotateY(80deg);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: rotateY(0);
+      transform: rotateY(0);
+      opacity: 1;
+    }
+  }
+  @keyframes flip-in-ver-left {
+    0% {
+      -webkit-transform: rotateY(80deg);
+      transform: rotateY(80deg);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: rotateY(0);
+      transform: rotateY(0);
+      opacity: 1;
+    }
+  }
+
+  .hook {
+    font-size: 2.5rem;
+    font-weight: 900;
+    padding: 1rem;
+    margin: 0;
+  }
+
+  p {
+    font-size: 1.5rem;
+
+    @media (max-width: 1060px) {
+      font-size: 1.3rem;
+
+    }
+    @media only screen and (max-width: 768px) {
+      font-size: 1.0rem;
+    }
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    @media (max-width: 1060px) {
+      font-size: 2.3rem;
+
+    }
+    @media only screen and (max-width: 768px) {
+      font-size: 2.0rem;
+    }
+  }
+
+  h5 {
+    font-size: 2rem;
+    @media (max-width: 1060px) {
+      font-size: 1.7rem;
+
+    }
+    @media only screen and (max-width: 768px) {
+      font-size: 1.5rem;
+    }
+  }
+
+  .secondary-fork {
+    display: flex;
+    flex-direction: column;
+    //padding-top: 13%;
+    //padding-bottom: 20%;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+
+    @media (max-width: 1060px) {
+      padding-bottom: 30%;
+
+    }
+    @media only screen and (max-width: 768px) {
+      padding-bottom: 40%;
+    }
+  }
+
+}
+
+//Tag quote at the top
+
+.tag {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  //padding: 1em;
+  text-align: left;
+  font-family: "Saira Extra Condensed", serif;
+  font-size: 2.3rem;
+  font-weight: 400;
+  width: 50%;
+
+  p {
+    display: unset;
+  }
+
+  h5 {
+    font-size: 1.5rem;
+    text-align: right;
+    margin-top: 3rem;
+    width: 100%;
+    @media (max-width: 1060px) {
+      font-size: 1.3rem;
+
+    }
+    @media only screen and (max-width: 768px) {
+      font-size: 1.3rem;
+    }
+  }
+
+  blockquote {
+    background: #18181E;
+    border-left: 10px solid #e83e8c;
+    //margin: 1.5em 10px;
+    padding: .4em;
+    quotes: "\201C" "\201D" "\2018" "\2019";
+    color: white;
+  }
+
+  blockquote:before {
+    color: white;
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    //margin-right: 0.25em;
+    vertical-align: -0.4em;
+  }
+
+  @media (max-width: 1060px) {
+    flex-direction: row;
+    padding-bottom: 0;
+    justify-content: space-between;
+    min-width: 100%;
+  }
+  @media only screen and (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+}
+
+//Scraping App Buttons
+.btn-group-vertical {
+  width: 50%;
+  padding: 1em;
+  align-items: center;
+
+  @media (max-width: 1060px) {
+    width: 100%;
+    padding: 0;
+    align-items: center;
+    height: 23rem;
+  }
+  @media only screen and (max-width: 768px) {
+    //font-size: .8rem;
+    width: 100%;
+    padding: 0;
+    align-items: center;
+    height: 23rem;
+  }
+
+  #path-to-scrape {
+    max-width: calc(1.5em + 75rem + 2px);
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/////////////////////////////
+//Defaults
+///////////////////////////
+
+#register {
+  color: #FF5A09;
+  text-align: center;
+  font-family: Raleway, serif;
+  font-size: 16px;
+}
+
+#register a {
+  color: white;
+}
+
+#register a:hover {
+  color: #337ab7;
+  text-decoration: none;
+}
+
+#title {
+  font-family: 'Nova Flat', sans-serif;
+  color: white;
+  padding-left: 0;
+}
+
+#react-loader {
+  text-align: center;
+}
+
+.mainPage {
+  background-color: white;
+  height: 50vh;
+  width: 100%;
+  text-align: center;
+}
+
+#landing-btn {
+  margin-bottom: 0.5rem;
+  //display: inline-block;
+}
+
+button, button:before, button:after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font: 300 1em/1 'Saira Extra Condensed', 'Saira Extra Condensed', Arial, sans-serif;
+  text-decoration: none;
+  color: #FFFFFF;
+
+}
+
+//a:hover{border-bottom: 1px solid #111;}
+//h1{font-size: 2em; padding: 20px 0;}
+//p{
+//  font-size: .75em;
+//  text-transform: uppercase;
+//  letter-spacing: 2px;
+//  padding: 20px 0;
+//}
+
+button:hover {
+  cursor: pointer
+}
+
+button {
+  background: transparent;
+  outline: none;
+  position: relative;
+  border: 2px solid #ffffff;
+  padding: 15px 50px;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+/*button:before (attr data-hover)*/
+button:hover:before {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+button:before {
+  content: attr(data-hover);
+  position: absolute;
+  top: .73em;
+  left: 0;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 900;
+  font-size: 1.3em;
+  opacity: 0;
+  transform: translate(-100%, 0);
+  transition: all .3s ease-in-out;
+  color: #02feff;
+  text-decoration: none;
+
+}
+
+/*button div (button text before hover)*/
+button:hover div {
+  opacity: 0;
+  transform: translate(100%, 0)
+}
+
+button div {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 900;
+  font-size: 1.3em;
+  transition: all .3s ease-in-out;
+  text-decoration: none;
+  width: 7.7rem;
+}

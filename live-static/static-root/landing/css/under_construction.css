@@ -1,0 +1,50 @@
+
+body {
+  background: #18181E;;
+  font-family: Raleway, serif;
+}
+
+h1{
+  font-family: "Nova Flat", serif;
+  font-weight:100;
+  font-size:27pt;
+  color:#E43;
+}
+
+p{
+    font-weight:300;
+    font-size: 18px;
+    color: white;
+
+}
+
+.warning-content {
+    top:25%;
+    width:100%;
+    height:300px;
+    text-align:center;
+    margin-top: 50px;
+
+    }
+@media screen and (min-width: 768px) {
+    .warning-content {
+    position: absolute;
+    top:25%;
+    width:100%;
+    height:300px;
+    text-align:center;
+    margin-top: 50px;
+
+    }
+}
+@media screen and (max-width: 568px) {
+.warning-content {
+
+  top:25%;
+  width:100%;
+  height:300px;
+  text-align:center;
+  margin-bottom: 50px;
+
+}
+}

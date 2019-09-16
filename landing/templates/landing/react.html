@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+  <link rel="stylesheet" href='{% static "landing/css/landing.css" %}'/>
+  <link rel="stylesheet" href='{% static "landing/css/landing.css.map" %}'/>
+{% endblock head %}
+
+{% block content %}
+  {% include "landing/messages_display.html" %}
+
+  <div id='root'></div>
+
+{% endblock content %}

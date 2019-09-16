@@ -1,0 +1,16 @@
+{% extends "base_alt.html" %}
+{% load static %}
+
+{% block head %}
+{% endblock head %}
+
+{% block title %}
+  <h2>Comms</h2>
+{% endblock %}
+{% block content %}
+  {% include "comm/messages_display.html" %}
+  <div class="container-fluid">
+    <div id='root'></div>
+  </div>
+
+{% endblock content %}

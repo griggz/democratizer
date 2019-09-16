@@ -1,0 +1,58 @@
+
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+body {
+
+  padding-bottom: 40px;
+  background-color: #18181E;
+
+}
+
+body h1 {
+
+    font-family: 'Nova Flat', sans-serif;
+    color: white;
+}
+
+body p {
+
+    font-family: 'Nunito', sans-serif;
+
+}
+
+body h2 {
+
+    font-family: 'Nova Flat', sans-serif;
+
+}
+
+body h3 {
+
+    font-size: xx-large;
+    font-family: 'Nova Flat', sans-serif;
+
+}
+
+body small {
+
+    font-size: small;
+}
+
+body a.post {
+
+    font-family: 'Nova Flat', serif;
+}
+
+body a.btn {
+
+    font-family: 'Nova Flat', serif;
+
+}
+
+a.btn {
+
+     font-family: 'Nova Flat', serif;
+
+}

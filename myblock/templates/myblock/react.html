@@ -1,0 +1,18 @@
+{% extends "base_alt.html" %}
+{% load static %}
+
+{% block head %}
+  <link rel="stylesheet" href='{% static "myblock/css/myblock.css" %}'/>
+  <link rel="stylesheet" href='{% static "myblock/css/dashboard.css" %}'/>
+{% endblock head %}
+
+  {% block title %}
+    <h2>Dashboard</h2>
+  {% endblock %}
+
+{% block content %}
+  {% include "myblock/messages_display.html" %}
+
+  <div id='root'></div>
+
+{% endblock content %}

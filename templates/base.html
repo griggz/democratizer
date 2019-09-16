@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+{#  <link rel="shortcut icon" href="{% static 'images/favicon.png' %}"/>#}
+
+  {% include "css.html" %}
+
+  <title>HARVSTR</title>
+
+  {% block head %}
+  {% endblock %}
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-inverse navbar-dark" id="mainNav">
+    <div class="container col-sm-10" style="font-family: 'Nova Flat', 'serif'">
+      <a class="navbar-brand js-scroll-trigger" href="/">HARVSTR</a>
+      <button class="navbar-toggler" type="button"
+              data-toggle="collapse" data-target="#navbarResponsive"
+              aria-controls="navbarResponsive" aria-expanded="false"
+              aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto my-2 my-lg-0">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">Contact</a>
+          </li>
+          {% if request.user.is_staff or request.user.is_superuser %}
+            <li class="nav-item">
+              <a class="nav-link"
+                 href="/site-management">{{ request.user.username }}</a>
+            </li>
+            <li class="nav-item"><a class="nav-link"
+                                    href="{% url 'accounts:logout' %}"><i
+                class="fas fa-sign-out-alt fa-lg"></i></a></li>
+          {% elif request.user.is_authenticated %}
+            <li class="nav-item">
+              <ul class="nav-link">{{ request.user.username }}</ul>
+            </li>
+            <li class="nav-item"><a class="nav-link"
+                                    href="{% url 'accounts:logout' %}"><i
+                class="fas fa-sign-out-alt fa-lg"></i></a></li>
+          {% else %}
+            <li class="nav-item"><a class="nav-link"
+                                    href="{% url 'accounts:login' %}"><i
+                class="fas fa-sign-in-alt fa-lg"></i> Login</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  {% if not request.user.is_authenticated %}
+    <h3 id="register"><a href="{% url 'accounts:login' %}">Login</a> or <a
+        href="{% url 'accounts:register' %}">Register</a> for full access!</h3>
+  {% endif %}
+</head>
+<body>
+{% block title %}
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+{% include "js.html" %}
+<script>
+    $(document).ready(function () {
+        {% block jquery %}
+        {% endblock %}
+    });
+</script>
+</body>
+</html>

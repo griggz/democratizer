@@ -1,0 +1,36 @@
+{
+  "files": {
+    "main.chunk.css": {
+      "pattern": "main\\.[^\\.]+\\.chunk.css",
+      "subst": "main.chunk.css"
+    },
+    "main.chunk.css.map": {
+      "pattern": "main\\.[^\\.]+\\.chunk.css.map",
+      "subst": "main.chunk.css.map"
+},
+    "runtime~main.js": {
+      "pattern": "runtime~main\\.[^\\.]+\\.js",
+      "subst": "runtime~main.js"
+    },
+    "runtime~main.js.map": {
+      "pattern": "runtime~main\\.[^\\.]+\\.js.map",
+      "subst": "runtime~main.js.map"
+    },
+    "main.chunk.js": {
+      "pattern": "main\\.[^\\.]+\\.chunk.js",
+      "subst": "main.chunk.js"
+    },
+    "main.chunk.js.map": {
+      "pattern": "main\\.[^\\.]+\\.chunk.js.map",
+      "subst": "main.chunk.js.map"
+    },
+    "2.chunk.js": {
+      "pattern": "\\d\\.[^\\.]+\\.chunk.js",
+      "subst": "main.chunk.js"
+    },
+    "2.chunk.js.map": {
+      "pattern": "\\d\\.[^\\.]+\\.chunk.js.map",
+      "subst": "main.chunk.js.map"
+    }
+  }
+}

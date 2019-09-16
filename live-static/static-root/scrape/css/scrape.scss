@@ -1,0 +1,115 @@
+@import url(https://fonts.googleapis.com/css?family=Lato|Pacifico|Permanent+Marker|Rock+Salt|Indie+Flower|Raleway|Nova+Flat|Nunito|Righteous:100,300,400,900&display=swap>);
+
+$sans-serif: "Raleway", Helvetica, Verdana, sans-serif;
+$serif: Merriweather, Georgia, "Times New Roman", serif;
+$mono: "Source Code Pro", Courier, mono;
+$experimental: "Source Code Pro", Courier, mono;
+
+$light: 100;
+$normal: 300;
+$semibold: 400;
+$bold: 900;
+
+body {
+
+  background-color: #18181E;
+  color: white;
+
+}
+
+.Results {
+  padding: 0 .5em;
+  text-align: left;
+  font-weight: 300;
+}
+
+.comms {
+  //align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1em;
+  text-align: left;
+  font-family: $sans-serif;
+  font-size: 2.0rem;
+  font-weight: 400;
+  max-width: calc(1.5em + 75rem + 2px);
+
+  p {
+    display: unset;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  blockquote {
+    background: #18181E;
+    border-left: 10px solid #e83e8c;
+    //margin: 1.5em 10px;
+    padding: .4em;
+    quotes: "\201C" "\201D" "\2018" "\2019";
+    color: white;
+  }
+
+  blockquote:before {
+    color: white;
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    //margin-right: 0.25em;
+    vertical-align: -0.4em;
+  }
+
+  @media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    h1 {
+      width: 100%;
+      font-size: 1.5rem;
+    }
+  }
+  @media (max-width: 1060px) {
+    justify-content: space-between;
+    font-size: 1.8rem;
+    min-width: 100%;
+    padding: 0;
+  }
+  @media only screen and (max-width: 768px) {
+    padding: 0;
+    font-size: 1.0rem;
+    min-width: 100%;
+  }
+
+}
+
+.scrape_form {
+  width: 100%;
+}
+
+#register {
+  color: #FF5A09;
+  text-align: center;
+  font-family: Raleway, serif;
+  font-size: 16px;
+}
+
+#register a {
+  color: white;
+}
+
+#register a:hover {
+  color: #337ab7;
+  text-decoration: none;
+}
+
+#react-loader {
+  text-align: center;
+}
+
+form {
+  max-width: calc(1.5em + 75rem + 2px);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+}

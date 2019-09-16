@@ -1,0 +1,13 @@
+{% load crispy_forms_tags %}
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+    <div class="row" style="margin-left: 20%; margin-right: 20%;">
+        <div>
+            {{  form|crispy }}
+        </div>
+
+    </div>
+{% endblock %}

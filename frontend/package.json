@@ -1,0 +1,71 @@
+{
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "d3": "^5.10.0",
+    "d3-scale": "latest",
+    "json-to-csv-export": "^1.0.2",
+    "moment": "^2.24.0",
+    "react": "^16.8.6",
+    "react-addons-css-transition-group": "^15.6.2",
+    "react-bootstrap": "^1.0.0-beta.9",
+    "react-cookies": "^0.1.0",
+    "react-csv": "^1.1.1",
+    "react-dom": "^16.8.6",
+    "react-hot-loader": "^4.12.10",
+    "react-json-to-csv": "^1.0.4",
+    "react-loader-spinner": "^3.1.2",
+    "react-markdown": "^4.1.0",
+    "react-moment": "^0.9.2",
+    "react-router-dom": "^4.2.2",
+    "react-share": "^3.0.0",
+    "startbootstrap-creative": "^5.1.7",
+    "whatwg-fetch": "^2.0.4"
+  },
+  "devDependencies": {
+    "copyfiles": "^2.0.0",
+    "react-csv-downloader": "^1.1.0",
+    "react-scripts": "^3.0.1",
+    "renamer": "^0.7.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "collect": "react-scripts build && npm run build-rename && npm run update-build-files && npm run copy-buildfiles && npm run collectstatic",
+    "build-rename": "npm run build-rename-js && npm run build-rename-js-map && npm run build-rename-2-chunk-js && npm run build-rename-2-chunk-map && npm run build-rename-chunk-js && npm run build-rename-chunk-map && npm run build-rename-css && npm run build-rename-css-map && npm run build-rename-images",
+    "build-rename-images": "renamer --regex --find '([^\\.])\\.[^\\.]+\\.(\\w+)' --replace '$1.$2' build/static/media/*",
+    "build-rename-js": "renamer --regex --find 'runtime~main\\.[^\\.]+\\.js' --replace 'runtime~main.js' build/static/js/*.js",
+    "build-rename-js-map": "renamer --regex --find 'runtime~main\\.[^\\.]+\\.js.map' --replace 'runtime~main.js.map' build/static/js/*.map",
+    "build-rename-chunk-js": "renamer --regex --find 'main\\.[^\\.]+\\.chunk.js' --replace 'main.chunk.js' build/static/js/*.js",
+    "build-rename-chunk-map": "renamer --regex --find 'main\\.[^\\.]+\\.chunk.js.map' --replace 'main.chunk.js.map' build/static/js/*.map",
+    "build-rename-2-chunk-js": "renamer --regex --find '\\d\\.[^\\.]+\\.chunk.js' --replace '2.chunk.js' build/static/js/*.js",
+    "build-rename-2-chunk-map": "renamer --regex --find '\\d\\.[^\\.]+\\.chunk.js.map' --replace '2.chunk.js.map' build/static/js/*.map",
+    "build-rename-css": "renamer --regex --find 'main\\.[^\\.]+\\.chunk.css' --replace 'main.chunk.css' build/static/css/*.css",
+    "build-rename-css-map": "renamer --regex --find 'main\\.[^\\.]+\\.chunk.css.map' --replace 'main.chunk.css.map' build/static/css/*.map",
+    "copy-buildfiles": "npm run copy-build-js && npm run copy-build-css && npm run copy-build-images",
+    "copy-build-images": "copyfiles -f 'build/images/*' '../static/images/'",
+    "copy-build-js": "copyfiles -f 'build/static/js/*.js' 'build/static/js/*.map' '../static/js/'",
+    "copy-build-css": "copyfiles -f 'build/static/css/*.css' 'build/static/css/*.map' '../static/css/'",
+    "update-build-files": "python utils/update_react_files.py",
+    "collectstatic": "python ../manage.py collectstatic --no-input"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

@@ -328,6 +328,10 @@ nav {
   margin-bottom: 0.5rem;
 }
 
+.errors {
+  color: #FF5A09;
+}
+
 button, button:before, button:after {
   box-sizing: border-box;
   padding: 0;

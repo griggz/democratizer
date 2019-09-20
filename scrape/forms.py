@@ -8,7 +8,7 @@ class YelpForm(ModelForm):
     class Meta:
         model = Yelp
         widgets = {'business_name': HiddenInput(), 'slug': HiddenInput()}
-        fields = ['link', 'business_name', 'slug']
+        fields = ['link', 'page_amount', 'business_name', 'slug']
         labels = {'link': 'Yelp Link', 'scrape_date': 'Date Scraped',
                   'slug': 'Slug'}
 

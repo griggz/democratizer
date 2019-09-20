@@ -56,6 +56,7 @@ class ScrapeSerializer(serializers.ModelSerializer):
             'url',
             'business_name',
             'link',
+            'page_amount',
             'scrape_date',
             'slug',
             'analytics',

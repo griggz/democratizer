@@ -1,185 +1,197 @@
 /*PAGE HEADER STYLE */
-
 .logo {
-    width: 80px;
-    height: 80px;
+  width: 80px;
+  height: 80px;
 }
 
 .icons {
-    margin-bottom: 1.0rem;
-    margin-top: .5rem;
-    padding: 0;
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+  padding: 0;
 }
 
 a:hover {
-    text-decoration: None;
+  text-decoration: None;
 }
 
 .btn-secondary {
-    background-color: #f5f5f5;
-    border: none;
-    color: #18181e;
-    padding: 10px;
-    margin: 0;
+  background-color: #f5f5f5;
+  border: none;
+  color: #18181e;
+  padding: 10px;
+  margin: 0;
 }
 
 .btn-secondary:hover {
-    background-color: #c9c9c9;
+  background-color: #c9c9c9;
 }
 
 .btn-block + .btn-block {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 #register {
-    text-align: right;
-    -webkit-box-pack: end;
+  text-align: right;
+  -webkit-box-pack: end;
 }
 
 #go-back {
-    text-align: left;
-    -webkit-box-pack: start;
+  text-align: left;
+  -webkit-box-pack: start;
 }
 
 #go-back svg {
-    transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 body {
-    background-image: url("../images/background_lights_dark.jpeg");
-    background-position: center center;
-    background-attachment: fixed;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-color: #18181e;
-    font-family: "Lato", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    min-height: 100%;
-
+  background-image: url("../images/background_lights_dark.jpeg");
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #18181e;
+  font-family: "Lato", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100%;
 }
 
 html {
-    position: relative;
-    min-height: 100%;
-    box-shadow: inset 0 0 0 1000px rgba(0,0,0,.2);
-
+  position: relative;
+  min-height: 100%;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
 }
 
 .card {
-    /* Added */
-    float: none; /* Added */
-    /* Added */
-    width: 30rem;
-    margin: 200px auto 10px;
-    background-color: #f5f5f5;
+  /* Added */
+  float: none;
+  /* Added */
+  /* Added */
+  width: 30rem;
+  margin: 200px auto 10px;
+  background-color: #f5f5f5;
 }
 
 .card-footer {
-    background-color: #f5f5f5;
-    padding: 0;
-    margin: 0;
-    border-top: None;
+  background-color: #f5f5f5;
+  padding: 0;
+  margin: 0;
+  border-top: None;
 }
 
-
 #hook {
-    width: 100%;
-    font-size: 80px;
-    color: #18181e;
-    text-align: center;
-    font-family: "Nova Flat", sans-serif;
-    /*margin-bottom: 2.0rem;*/
-    margin-top: 2rem;
+  width: 100%;
+  font-size: 4rem;
+  color: #18181e;
+  text-align: center;
+  font-family: "Nova Flat", sans-serif;
+  /*margin-bottom: 2.0rem;*/
+  margin-top: 2rem;
+}
+@media (max-width: 1060px) {
+  #hook {
+    justify-content: space-between;
+    font-size: 3.5rem;
+    min-width: 100%;
+    padding: 0;
+  }
+}
+@media only screen and (max-width: 768px) {
+  #hook {
+    padding: 0;
+    font-size: 3rem;
+    min-width: 100%;
+  }
 }
 
 .page_message {
-    margin: 0;
-    padding: 0;
-    color: #FF5A09;
-    font-size: 14px;
-    text-align: center;
+  margin: 0;
+  padding: 0;
+  color: #FF5A09;
+  font-size: 14px;
+  text-align: center;
 }
 
 p {
-    margin-bottom: 1.0rem;
+  margin-bottom: 1rem;
 }
+
 /*PAGE FOOTER STYLE*/
-
 .page-footer {
-
-    font-size: 1.4em;
-    font-weight: normal;
-    text-transform: uppercase;
-    text-align: center;
-    width: 100%;
-    height: 100%;
-    /*position: absolute;*/
-    position: relative;
-    right: 0;
-    bottom: 0;
-    left: 0;
-
+  font-size: 1.4em;
+  font-weight: normal;
+  text-transform: uppercase;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  /*position: absolute;*/
+  position: relative;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 .footer-options {
-    font-family: "Righteous", sans-serif;
-    text-transform: uppercase;
-    color: #18181e;
-    font-size: 35px;
-    margin: 0 0 0 0;
+  font-family: "Righteous", sans-serif;
+  text-transform: uppercase;
+  color: #18181e;
+  font-size: 35px;
+  margin: 0 0 0 0;
 }
 
 .footer-options a {
-    font-family: "Righteous", sans-serif;
-    text-transform: uppercase;
-    color: #18181e;
-    font-size: 35px;
-    margin: -50px 0 0 0;
+  font-family: "Righteous", sans-serif;
+  text-transform: uppercase;
+  color: #18181e;
+  font-size: 35px;
+  margin: -50px 0 0 0;
 }
 
-.footer-options a:hover  {
-    font-family: "Righteous", sans-serif;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: #FF5A09;
-    font-size: 35px;
-    margin: 0 0 0 0;
+.footer-options a:hover {
+  font-family: "Righteous", sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #FF5A09;
+  font-size: 35px;
+  margin: 0 0 0 0;
 }
 
 .footer-options-extra {
-    font-family: "Righteous", sans-serif;
-    text-transform: uppercase;
-    color: #b3b3b3;
-    font-size: 15px;
-    margin: 40px 0 0 0;
-    text-align: center;
+  font-family: "Righteous", sans-serif;
+  text-transform: uppercase;
+  color: #b3b3b3;
+  font-size: 15px;
+  margin: 40px 0 0 0;
+  text-align: center;
 }
 
 .footer-options-extra a {
-    font-family: "Righteous", sans-serif;
-    text-transform: uppercase;
-    color: #18181e;
-    font-size: 15px;
-    margin: 40px 0 0 0;
+  font-family: "Righteous", sans-serif;
+  text-transform: uppercase;
+  color: #18181e;
+  font-size: 15px;
+  margin: 40px 0 0 0;
 }
 
-.footer-options-extra a:hover  {
-    font-family: "Righteous", sans-serif;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: #FF5A09;
-    font-size: 15px;
-    margin: 40px 0 0 0;
+.footer-options-extra a:hover {
+  font-family: "Righteous", sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #FF5A09;
+  font-size: 15px;
+  margin: 40px 0 0 0;
 }
 
 @media screen and (max-width: 568px) {
+  .card {
+    width: 23rem;
+    font-size: smaller;
+  }
 
-    .card {
-        width: 23rem;
-        font-size: smaller;
+  #demo_modal {
+    font-size: 18px;
+  }
 }
-    #demo_modal {
-        font-size: 18px;
-    }
-}
+
+/*# sourceMappingURL=login.css.map */

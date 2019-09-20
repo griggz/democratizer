@@ -90,7 +90,6 @@ class ScrapeCreate extends Component {
                 }) : <p>No Messages To Display</p>
                 }
             </div>
-
         )
     }
 

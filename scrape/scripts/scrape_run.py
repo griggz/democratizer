@@ -8,14 +8,17 @@ import pandas as pd
 class YelpScrape:
     def __init__(self, instance, instance_id):
         self.link = instance.link
-        self.results = self.scrape_yelp()
         self.instance_id = instance_id
         self.business_name = None
+        self.page_amount = None
+        self.instance = instance
+        self.results = self.scrape_yelp()
 
     def scrape_yelp(self):
-        results, biz_name = scrape(self.link, 3)
+        results, biz_name = scrape(self.link, self.instance.page_amount)
         results = pd.DataFrame(results)
         self.business_name = biz_name
+
         return results
 
     def process_results(self):

@@ -80,7 +80,7 @@ def _fetch_reviews(link, num_pages):
     return biz_reviews, str(business)
 
 
-def scrape(link, num_pages=0):
+def scrape(link, num_pages):
     """
     Scrapes review from the Yelp page
 
@@ -100,7 +100,10 @@ def scrape(link, num_pages=0):
     """
 
     # Assign returned tuple
-    reviews, biz_title = _fetch_reviews(link, num_pages)
+    if num_pages is None:
+        reviews, biz_title = _fetch_reviews(link, num_pages=0)
+    else:
+        reviews, biz_title = _fetch_reviews(link, num_pages)
 
     # return data_set(reviews, biz_title)
 

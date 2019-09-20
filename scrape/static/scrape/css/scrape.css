@@ -82,6 +82,10 @@ body {
   font-size: 16px;
 }
 
+.errors {
+  color: #FF5A09;
+}
+
 #register a {
   color: white;
 }

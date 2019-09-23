@@ -6,6 +6,7 @@ import ScrapeInline from "../scrape/ScrapeInline";
 import {Redirect} from "react-router-dom";
 import csvDownload from 'json-to-csv-export'
 import Button from 'react-bootstrap/Button';
+import log from "d3-scale/src/log";
 
 
 class ScrapeDetail extends Component {
@@ -17,6 +18,7 @@ class ScrapeDetail extends Component {
       doneLoading: false,
       visible: 25,
       words: null,
+      site: this.props.location.state.site
     };
     this.loadMore = this.loadMore.bind(this);
   }
@@ -33,8 +35,19 @@ class ScrapeDetail extends Component {
     })
   }
 
+  validateJson(responseData) {
+    let data = this.state;
+    if (data.site === 'indeed') {
+      responseData['reviews'] = responseData['indeed_reviews'];
+      delete responseData['indeed_reviews'];
+      return responseData
+    } else {
+      return responseData
+    }
+  }
+
   loadReviews(slug) {
-    const endpoint = `/api/scrape/${slug}/`;
+    const endpoint = `/api/scrape/${this.state.site}/${slug}`;
     let thisComp = this;
     let lookupOptions = {
       method: "GET",
@@ -64,7 +77,7 @@ class ScrapeDetail extends Component {
       } else {
         thisComp.setState({
           doneLoading: true,
-          scrape: responseData
+          scrape: thisComp.validateJson(responseData)
         })
       }
     }).catch(function (error) {
@@ -80,7 +93,7 @@ class ScrapeDetail extends Component {
       const {slug} = this.props.match.params;
       this.setState({
         slug: slug,
-        doneLoading: false
+        doneLoading: false,
       });
       this.loadReviews(slug);
     }
@@ -136,6 +149,13 @@ class ScrapeDetail extends Component {
 
           <div className="row justify-content-md-center">
             <div className="col-sm-10">
+              {/*<ScrapeChart words={scrape.analytics}/>*/}
+              <h1>{scrape.business_name} Reviews</h1>
+              <Button variant="secondary"
+                      onClick={() => csvDownload(scrape.reviews, this.buildFileName())}>
+                Download Data
+              </Button>
+              &nbsp;
               <Link maintainScrollPosition={false} to={{
                 pathname: `/scrape`,
                 state: {fromDashboard: false}
@@ -144,19 +164,11 @@ class ScrapeDetail extends Component {
                   Scrape
                 </button>
               </Link>
-              <br/>
-              {/*<ScrapeChart words={scrape.analytics}/>*/}
-              <br/>
-              <h1>{scrape.business_name}</h1>
-              <Button variant="secondary"
-                      onClick={() => csvDownload(scrape.reviews, this.buildFileName())}>
-                Download Data
-              </Button>
               <hr style={hrStyle}/>
               {scrape.reviews.length > 0 ? scrape.reviews.slice(0, this.state.visible).map((Item, index) => {
                 return (
                   <div className="row" key={index}>
-                    <ScrapeInline reviews={Item}/>
+                    <ScrapeInline reviews={Item} site={scrape.site}/>
                   </div>)
               }) : <p>No Reviews Found</p>}
               {this.state.visible < scrape.reviews.length &&

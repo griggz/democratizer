@@ -1,0 +1,130 @@
+:root {
+  --sl-pad: 1rem;
+  --sl-clr: #00bbff;
+  --txt-clr: black;
+  --txt-size: 1.75rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.side-lines {
+  margin: 2rem 0;
+  font-size: var(--txt-size);
+  color: var(--txt-clr);
+}
+.side-lines--single {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  text-align: center;
+}
+.side-lines--single:before, .side-lines--single:after {
+  content: "";
+  flex: 1;
+  width: 100%;
+  height: 2px;
+  background-color: var(--sl-clr);
+}
+.side-lines--single:before {
+  margin-right: var(--sl-pad);
+}
+.side-lines--single:after {
+  margin-left: var(--sl-pad);
+}
+.side-lines--double {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  text-align: center;
+}
+.side-lines--double:before, .side-lines--double:after {
+  content: "";
+  flex: 1;
+  width: 100%;
+  height: 2px;
+  height: 4px;
+  border-top: 2px solid var(--sl-clr);
+  border-bottom: 2px solid var(--sl-clr);
+}
+.side-lines--double:before {
+  margin-right: var(--sl-pad);
+}
+.side-lines--double:after {
+  margin-left: var(--sl-pad);
+}
+.side-lines--striped {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  text-align: center;
+}
+.side-lines--striped:before, .side-lines--striped:after {
+  content: "";
+  flex: 1;
+  width: 100%;
+  height: 6px;
+  height: 12px;
+  background: repeating-linear-gradient(45deg, var(--sl-clr), var(--sl-clr) 6px, transparent 6px, transparent 12px);
+}
+.side-lines--striped:before {
+  margin-right: var(--sl-pad);
+}
+.side-lines--striped:after {
+  margin-left: var(--sl-pad);
+}
+.side-lines--checkered {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  text-align: center;
+}
+.side-lines--checkered:before, .side-lines--checkered:after {
+  content: "";
+  flex: 1;
+  width: 100%;
+  height: 24px;
+  background: linear-gradient(45deg, var(--sl-clr) 25%, transparent 25%), linear-gradient(315deg, var(--sl-clr) 25%, transparent 25%), linear-gradient(225deg, var(--sl-clr) 25%, transparent 25%), linear-gradient(135deg, var(--sl-clr) 25%, transparent 25%);
+  background-size: 12px 12px;
+}
+.side-lines--checkered:before {
+  margin-right: var(--sl-pad);
+}
+.side-lines--checkered:after {
+  margin-left: var(--sl-pad);
+}
+.side-lines--snake {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  text-align: center;
+}
+.side-lines--snake:before, .side-lines--snake:after {
+  content: "";
+  flex: 1;
+  width: 100%;
+  height: 24px;
+  animation: move 0.5s linear infinite forwards;
+  height: 16px;
+  background: radial-gradient(circle at 100% 100%, transparent 30%, var(--sl-clr) 30%, var(--sl-clr) 45%, transparent 45%, transparent), radial-gradient(circle at 0 0, transparent 25%, var(--sl-clr) 25%, var(--sl-clr) 40%, transparent 40%, transparent);
+  background-size: 24px 24px;
+}
+@keyframes move {
+  to {
+    background-position: 24px 24px;
+  }
+}
+.side-lines--snake:before {
+  margin-right: var(--sl-pad);
+}
+.side-lines--snake:after {
+  margin-left: var(--sl-pad);
+}
+
+/*# sourceMappingURL=lines.css.map */

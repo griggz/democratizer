@@ -1,7 +1,7 @@
 from __future__ import absolute_import, unicode_literals
 from celery.task import task
 from django.db import Error
-from .models import Yelp
+from .models import Collect
 import datetime
 from datetime import timedelta
 
@@ -17,7 +17,7 @@ def clean_db():
     These records include yelp parent and review child records."""
     # logger = logging.getLogger(__name__)
     time_threshold = datetime.datetime.now() - timedelta(hours=2)
-    objects = Yelp.objects.filter(scrape_date__lt=time_threshold)
+    objects = Collect.objects.filter(scrape_date__lt=time_threshold)
     # objects = Yelp.objects.all()
 
     if objects:

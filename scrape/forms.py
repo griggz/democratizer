@@ -1,4 +1,4 @@
-from .models import Yelp
+from .models import Collect
 from django.forms import ModelForm, HiddenInput
 from django.core.validators import ValidationError
 
@@ -6,7 +6,7 @@ from django.core.validators import ValidationError
 class YelpForm(ModelForm):
 
     class Meta:
-        model = Yelp
+        model = Collect
         widgets = {'business_name': HiddenInput(), 'slug': HiddenInput()}
         fields = ['link', 'page_amount', 'business_name', 'slug']
         labels = {'link': 'Yelp Link', 'scrape_date': 'Date Scraped',

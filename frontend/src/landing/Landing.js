@@ -148,9 +148,9 @@ class Landing extends Component {
     return (
       <div>
         {!this.state.doneLoading ? (
-          <div class="loading">
-            <div class="spinner">
-              <ReactLoading type={"bars"} color={"white"}/></div>
+          <div className="loading">
+            <ReactLoading type={"bars"} color={"white"} height={'15%'}
+                          width={'15%'} id='spinner'/>
           </div>
         ) : (
           <div>
@@ -165,33 +165,40 @@ class Landing extends Component {
                     </div>
                   )
                 }) : ""}
-                <div class="vl"> </div>
+                <div class="vl"></div>
                 <div className="btn-group-vertical">
-                  <h3>DataSet Builders: </h3>
-                  <h5>Select your data source below.</h5>
-                  <a id="landing-btn" href="/scrape/">
-                    <button data-hover="GO">
-                      <div>Yelp</div>
-                    </button>
-                  </a>
-                  <Link id="landing-btn" maintainScrollPosition={false} to={{
-                    pathname: `/`,
-                    state: {fromDashboard: false}
-                  }}>
-                    <button data-hover="UNDER DEVELOPMENT">
-                      <div>GlassDoor</div>
-                    </button>
-                  </Link>
-                  <Link id="landing-btn" maintainScrollPosition={false} to={{
-                    pathname: `/`,
-                    state: {fromDashboard: false}
-                  }}>
-                    <button data-hover="UNDER DEVELOPMENT">
-                      <div>Indeed</div>
-                    </button>
-                  </Link>
+                  <div class="container-fluid">
+                    <h3>DataSet Builders: </h3>
+                    <h5>Select your data source below.</h5>
+                    <a id="landing-btn" href="/scrape/">
+                      <button class="btn-fill">
+                        Yelp
+                      </button>
+                    </a>
+                    <a id="landing-btn" href="/scrape/">
+                      <button className="btn-fill">
+                        Indeed
+                      </button>
+                    </a>
+                    <Link id="landing-btn" maintainScrollPosition={false} to={{
+                      pathname: `/`,
+                      state: {fromDashboard: false}
+                    }}>
+                      <button class="btn-flip">
+                        GlassDoor
+                      </button>
+                    </Link>
+                    <Link id="landing-btn" maintainScrollPosition={false} to={{
+                      pathname: `/`,
+                      state: {fromDashboard: false}
+                    }}>
+                      <button class="btn-flip">
+                        Twitter
+                      </button>
+                    </Link>
+                  </div>
+                  <hr style={hrStyle}/>
                 </div>
-                <hr style={hrStyle}/>
               </div>
             </section>
 

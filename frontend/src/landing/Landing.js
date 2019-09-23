@@ -4,6 +4,7 @@ import cookie from 'react-cookies'
 import {Link} from 'react-router-dom'
 import ReactMarkdown from "react-markdown";
 import FeedbackForm from "../landing/FeedbackForm";
+import ReactLoading from "react-loading";
 
 
 class Landing extends Component {
@@ -22,7 +23,8 @@ class Landing extends Component {
       author: false,
       draft: null,
       count: 0,
-      pagePosition: null
+      pagePosition: null,
+      doneLoading: undefined
     };
   }
 
@@ -48,7 +50,7 @@ class Landing extends Component {
       pagePosition: scrolled
     });
 
-    if (scrolled >= .53 && this.state.mobile === false) {
+    if (scrolled >= .40 && this.state.mobile === false) {
       this.setState({
         animate: true
       });
@@ -98,7 +100,8 @@ class Landing extends Component {
           previous: responseData.previous,
           staff: responseData.staff,
           draft: responseData.draft,
-          count: responseData.count
+          count: responseData.count,
+          doneLoading: true,
         })
       }
     ).catch(function (error) {
@@ -116,9 +119,13 @@ class Landing extends Component {
       about: [],
       next: null,
       previous: null,
-      count: 0
+      count: 0,
     });
-    this.loadComms();
+
+    setTimeout(() => {
+      this.loadComms()
+    }, 1200);
+    console.log(this.state.doneLoading)
   }
 
 
@@ -140,72 +147,83 @@ class Landing extends Component {
 
     return (
       <div>
-        <section className="fork">
-          <div className="container" id="top">
-            {comms.length > 0 ? comms.map((commItem, index) => {
-              return (
-                <div className="tag">
-                  {commItem !== undefined ?
-                    <ReactMarkdown source={commItem.content}/>
-                    : ""}
-                </div>
-              )
-            }) : ""
-            }
-            <div class="vl"></div>
-            <div class="btn-group-vertical">
-              <a id="landing-btn" href="/scrape/">
-                <button data-hover="GO">
-                  <div>Yelp</div>
-                </button>
-              </a>
-              <Link id="landing-btn" maintainScrollPosition={false} to={{
-                pathname: `/`,
-                state: {fromDashboard: false}
-              }}>
-                <button data-hover="UNDER DEVELOPMENT">
-                  <div>GlassDoor</div>
-                </button>
-              </Link>
-              <Link id="landing-btn" maintainScrollPosition={false} to={{
-                pathname: `/`,
-                state: {fromDashboard: false}
-              }}>
-                <button data-hover="UNDER DEVELOPMENT">
-                  <div>Indeed</div>
-                </button>
-              </Link>
-            </div>
-            <hr style={hrStyle}/>
+        {!this.state.doneLoading ? (
+          <div class="loading">
+            <div class="spinner">
+              <ReactLoading type={"bars"} color={"white"}/></div>
           </div>
-        </section>
-        <section class="about" id="about">
-          <div className="container-fluid">
-            <div className="row">
-              <div className="col-sm-6 py-2">
-                {about.length > 0 ? about.map((aboutItem, index) => {
+        ) : (
+          <div>
+            <section className="fork">
+              <div className="container" id="top">
+                {comms.length > 0 ? comms.map((commItem, index) => {
                   return (
-                    <div className={aboutCardClass} id={aboutCardAnimate}>
-                      <h1 class="hook">{aboutItem.title}</h1>
-                      <hr style={hrStyle}/>
-                      <div className="card-body d-flex flex-column">
-                        <h5 className="card-title">Democratizing the Worlds
-                          Data</h5>
-                        <p className="card-text">
-                          {aboutItem !== undefined ?
-                            <ReactMarkdown source={aboutItem.content}/>
-                            : ""}
-                        </p>
-                      </div>
+                    <div className="tag">
+                      {commItem !== undefined ?
+                        <ReactMarkdown source={commItem.content}/>
+                        : ""}
                     </div>
                   )
-                }) : ""
-                }
+                }) : ""}
+                <div class="vl"> </div>
+                <div className="btn-group-vertical">
+                  <h3>DataSet Builders: </h3>
+                  <h5>Select your data source below.</h5>
+                  <a id="landing-btn" href="/scrape/">
+                    <button data-hover="GO">
+                      <div>Yelp</div>
+                    </button>
+                  </a>
+                  <Link id="landing-btn" maintainScrollPosition={false} to={{
+                    pathname: `/`,
+                    state: {fromDashboard: false}
+                  }}>
+                    <button data-hover="UNDER DEVELOPMENT">
+                      <div>GlassDoor</div>
+                    </button>
+                  </Link>
+                  <Link id="landing-btn" maintainScrollPosition={false} to={{
+                    pathname: `/`,
+                    state: {fromDashboard: false}
+                  }}>
+                    <button data-hover="UNDER DEVELOPMENT">
+                      <div>Indeed</div>
+                    </button>
+                  </Link>
+                </div>
+                <hr style={hrStyle}/>
               </div>
-              <FeedbackForm/>
-            </div>
+            </section>
+
+            <section class="about" id="about">
+              <div className="container-fluid">
+                <div className="row">
+                  <div className="col-sm-6 py-2">
+                    {about.length > 0 ? about.map((aboutItem, index) => {
+                      return (
+                        <div className={aboutCardClass} id={aboutCardAnimate}>
+                          <h1 class="hook">{aboutItem.title}</h1>
+                          <hr style={hrStyle}/>
+                          <div className="card-body d-flex flex-column">
+                            <h5 className="card-title">Democratizing the Worlds
+                              Data</h5>
+                            <p className="card-text">
+                              {aboutItem !== undefined ?
+                                <ReactMarkdown source={aboutItem.content}/>
+                                : ""}
+                            </p>
+                          </div>
+                        </div>
+                      )
+                    }) : ""
+                    }
+                  </div>
+                  <FeedbackForm/>
+                </div>
+              </div>
+            </section>
           </div>
-        </section>
+        )}
       </div>
     )
   }

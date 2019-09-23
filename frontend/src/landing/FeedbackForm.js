@@ -113,7 +113,7 @@ class FeedbackForm extends Component {
       pagePosition: scrolled
     });
 
-    if (scrolled >= .53 && this.state.mobile === false) {
+    if (scrolled >= .40 && this.state.mobile === false) {
       this.setState({
         animate: true
       });

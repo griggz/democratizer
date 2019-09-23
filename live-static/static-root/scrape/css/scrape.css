@@ -1,5 +1,20 @@
 @charset "UTF-8";
 @import url(https://fonts.googleapis.com/css?family=Lato|Pacifico|Permanent+Marker|Rock+Salt|Indie+Flower|Raleway|Nova+Flat|Nunito|Righteous:100,300,400,900&display=swap>);
+.loading {
+  background-color: #18181E;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.spinner {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -50px;
+}
+
 body {
   background-color: #18181E;
   color: white;

@@ -4,6 +4,21 @@ nav {
   background-color: #18181E;
 }
 
+.loading {
+  background-color: #18181E;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.spinner {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -50px;
+}
+
 .vl {
   border-left: 1px solid white;
   margin: 1rem;
@@ -264,15 +279,35 @@ nav {
 
 .btn-group-vertical {
   width: 50%;
-  padding: 1em;
+  padding: 0.4em;
   align-items: center;
+  height: 100%;
+}
+.btn-group-vertical h3 {
+  height: 100%;
+  width: 100%;
+  color: white;
+  text-align: left;
+  margin: 0;
+}
+.btn-group-vertical h5 {
+  margin-left: 2.5rem;
+  height: 100%;
+  width: 100%;
+  color: white;
+  text-align: left;
+}
+@media only screen and (max-width: 768px) {
+  .btn-group-vertical h5 {
+    margin-bottom: 2rem;
+  }
 }
 @media (max-width: 1060px) {
   .btn-group-vertical {
     width: 100%;
     padding: 0;
     align-items: center;
-    height: 23rem;
+    height: auto;
   }
 }
 @media only screen and (max-width: 768px) {
@@ -280,7 +315,7 @@ nav {
     width: 100%;
     padding: 0;
     align-items: center;
-    height: 23rem;
+    height: auto;
   }
 }
 .btn-group-vertical #path-to-scrape {
@@ -374,7 +409,7 @@ button:before {
   opacity: 0;
   transform: translate(-100%, 0);
   transition: all 0.3s ease-in-out;
-  color: #02feff;
+  color: #00bbff;
   text-decoration: none;
 }
 

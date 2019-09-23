@@ -1,7 +1,29 @@
 @import url(https://fonts.googleapis.com/css?family=Josefin+Slab|Saira+Extra+Condensed:100,300,400,900&display=swap);
 
+
+//Colors
+$neon-blue: #00bbff;
+$backing: #18181E;
+$neon-pink: #e83e8c;
+
+
 nav {
-  background-color: #18181E;
+  background-color: $backing;
+}
+
+.loading {
+  background-color: $backing;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.spinner {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -50px;
 }
 
 // Vertical Line
@@ -67,9 +89,9 @@ nav {
   justify-content: center;
   text-align: center;
   width: 100%;
-  background-color: #18181E;
-  border-bottom: 1px solid #18181E;
-  box-shadow: 0 20px 30px 0 #18181E;
+  background-color: $backing;
+  border-bottom: 1px solid $backing;
+  box-shadow: 0 20px 30px 0 $backing;
 
   @media only screen and (max-width: 1060px) {
     padding-bottom: 5%;
@@ -240,8 +262,8 @@ nav {
   }
 
   blockquote {
-    background: #18181E;
-    border-left: 10px solid #e83e8c;
+    background: $backing;
+    border-left: 10px solid $neon-pink;
     //margin: 1.5em 10px;
     padding: .4em;
     quotes: "\201C" "\201D" "\2018" "\2019";
@@ -271,21 +293,43 @@ nav {
 //Scraping App Buttons
 .btn-group-vertical {
   width: 50%;
-  padding: 1em;
+  padding: .4em;
   align-items: center;
+  height: 100%;
+
+
+  h3 {
+    height: 100%;
+    width: 100%;
+    color: white;
+    text-align: left;
+    margin: 0;
+  }
+
+  h5 {
+    margin-left: 2.5rem;
+    height: 100%;
+    width: 100%;
+    color: white;
+    text-align: left;
+
+    @media only screen and (max-width: 768px) {
+      margin-bottom: 2rem ;
+    }
+  }
 
   @media (max-width: 1060px) {
     width: 100%;
     padding: 0;
     align-items: center;
-    height: 23rem;
+    height: auto;
   }
   @media only screen and (max-width: 768px) {
     //font-size: .8rem;
     width: 100%;
     padding: 0;
     align-items: center;
-    height: 23rem;
+    height: auto;
   }
 
   #path-to-scrape {
@@ -303,18 +347,18 @@ nav {
 ///////////////////////////
 
 #register {
-    color: #FF5A09;
-    background-color: #18181E;
-    text-align: center;
-    font-family: Raleway, serif;
-    font-size: 16px;
+  color: #FF5A09;
+  background-color: $backing;
+  text-align: center;
+  font-family: Raleway, serif;
+  font-size: 16px;
   margin: 0;
   padding: 0;
 }
 
 #register a:hover {
-    color: #337ab7;
-    text-decoration: none;
+  color: #337ab7;
+  text-decoration: none;
 }
 
 #title {
@@ -395,7 +439,7 @@ button:before {
   opacity: 0;
   transform: translate(-100%, 0);
   transition: all .3s ease-in-out;
-  color: #02feff;
+  color: $neon-blue;
   text-decoration: none;
 
 }

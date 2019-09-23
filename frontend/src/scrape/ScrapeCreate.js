@@ -82,6 +82,7 @@ class ScrapeCreate extends Component {
                 {comms.length > 0 ? comms.map((commItem, index) => {
                     return (
                         <div className="comms">
+                            <h1 class="side-lines--double">Instructions</h1>
                             {commItem !== undefined ?
                                 <ReactMarkdown source={commItem.content}/>
                                 : ""}

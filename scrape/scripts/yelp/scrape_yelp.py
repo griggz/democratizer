@@ -107,7 +107,7 @@ def scrape(link, num_pages):
 
     # return data_set(reviews, biz_title)
 
-    return reviews, biz_title
+    return reviews
 
 # def meta_scrape(link):
 

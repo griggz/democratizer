@@ -15,16 +15,15 @@ nav {
   background-color: $backing;
   height: 100%;
   width: 100%;
+  padding: 0;
+  margin: 0;
   position: absolute;
+
+  #spinner {
+    margin: 15% auto auto auto;
+  }
 }
 
-.spinner {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  margin-top: -50px;
-  margin-left: -50px;
-}
 
 // Vertical Line
 .vl {
@@ -118,6 +117,10 @@ nav {
   padding: 1em;
   text-align: center;
   font-family: "Saira Extra Condensed", serif;
+
+  a {
+    text-decoration: none;
+  }
 
   @media (min-width: 1060px) {
     flex-direction: row;
@@ -299,7 +302,7 @@ nav {
 
 
   h3 {
-    height: 100%;
+    height: auto;
     width: 100%;
     color: white;
     text-align: left;
@@ -308,13 +311,13 @@ nav {
 
   h5 {
     margin-left: 2.5rem;
-    height: 100%;
+    height: auto;
     width: 100%;
     color: white;
     text-align: left;
 
     @media only screen and (max-width: 768px) {
-      margin-bottom: 2rem ;
+      margin-bottom: 2rem;
     }
   }
 
@@ -333,10 +336,9 @@ nav {
   }
 
   #path-to-scrape {
-    max-width: calc(1.5em + 75rem + 2px);
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
+    //margin-left: auto;
+    //margin-right: auto;
+    //display: block;
     align-items: center;
     justify-content: center;
   }
@@ -418,44 +420,45 @@ button {
   padding: 15px 50px;
   overflow: hidden;
   text-decoration: none;
+  margin: .3rem;
 }
 
-/*button:before (attr data-hover)*/
-button:hover:before {
-  opacity: 1;
-  transform: translate(0, 0);
-}
-
-button:before {
-  content: attr(data-hover);
-  position: absolute;
-  top: .73em;
-  left: 0;
-  width: 100%;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  font-weight: 900;
-  font-size: 1.3em;
-  opacity: 0;
-  transform: translate(-100%, 0);
-  transition: all .3s ease-in-out;
-  color: $neon-blue;
-  text-decoration: none;
-
-}
-
-/*button div (button text before hover)*/
-button:hover div {
-  opacity: 0;
-  transform: translate(100%, 0)
-}
-
-button div {
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: 900;
-  font-size: 1.3em;
-  transition: all .3s ease-in-out;
-  text-decoration: none;
-  width: 7.7rem;
-}
+///*button:before (attr data-hover)*/
+//button:hover:before {
+//  opacity: 1;
+//  transform: translate(0, 0);
+//}
+//
+//button:before {
+//  content: attr(data-hover);
+//  position: absolute;
+//  top: .73em;
+//  left: 0;
+//  width: 100%;
+//  text-transform: uppercase;
+//  letter-spacing: 3px;
+//  font-weight: 900;
+//  font-size: 1.3em;
+//  opacity: 0;
+//  transform: translate(-100%, 0);
+//  transition: all .3s ease-in-out;
+//  color: $neon-blue;
+//  text-decoration: none;
+//
+//}
+//
+///*button div (button text before hover)*/
+//button:hover div {
+//  opacity: 0;
+//  transform: translate(100%, 0)
+//}
+//
+//button div {
+//  text-transform: uppercase;
+//  letter-spacing: 2px;
+//  font-weight: 900;
+//  font-size: 1.3em;
+//  transition: all .3s ease-in-out;
+//  text-decoration: none;
+//  width: 7.7rem;
+//}

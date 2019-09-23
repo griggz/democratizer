@@ -11,9 +11,8 @@ import dj_database_url
 # environ.Env.read_env()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(
-    os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
@@ -191,3 +190,4 @@ BUILD_JSON = os.path.join(BASE_DIR, "frontend/utils/build.json")
 
 # SCRAPE
 IGNORE_WORDS_JSON = 'src/scrape/scripts/text_analysis/constants/words_ignore.json'
+ACTIVESITES_JSON = os.path.join(BASE_DIR, "scrape/constants/activeSites.json")

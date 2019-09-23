@@ -4,7 +4,10 @@ from . import views
 app_name = 'scrape-api'
 
 urlpatterns = [
-    path('', views.ScrapeListCreateAPIView.as_view(), name='list-create'),
-    re_path(r'^(?P<slug>[\w-]+)/$', views.ScrapeDetailAPIView.as_view(),
-            name='detail')
+    path('yelp', views.ScrapeListCreateAPIView.as_view(), name='yelp-list-create'),
+    re_path(r'^yelp/(?P<slug>[\w-]+)/$', views.ScrapeDetailAPIView.as_view(),
+            name='yelp_detail'),
+    path('indeed', views.ScrapeListCreateAPIView.as_view(), name='indeed-list-create'),
+    re_path(r'^indeed/(?P<slug>[\w-]+)/$', views.ScrapeDetailAPIView.as_view(),
+            name='indeed_detail'),
 ]

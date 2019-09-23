@@ -4,7 +4,6 @@ import cookie from 'react-cookies'
 import {Redirect} from "react-router-dom";
 import Loader from 'react-loader-spinner';
 import validate from './ScrapeFormValidationRules'
-import {breakStatement} from "@babel/types";
 
 
 class ScrapeForm extends Component {
@@ -23,11 +22,13 @@ class ScrapeForm extends Component {
       slug: null,
       scraping: null,
       errors: null,
+      site: null
     }
   }
 
   createScrape(data) {
-    const endpoint = '/api/scrape/';
+    const scrape_type = this.identifySite(data);
+    const endpoint = `/api/scrape/${scrape_type}`;
     const csrfToken = cookie.load('csrftoken');
     let thisComp = this;
     if (csrfToken !== undefined) {
@@ -47,7 +48,8 @@ class ScrapeForm extends Component {
         }).then(function (responseData) {
         thisComp.setState({
           redirectLink: `/scrape/results/${responseData.slug}`,
-          scraping: null
+          scraping: null,
+          site: scrape_type
         });
         // console.log(`scrape/results/${responseData.slug}`);
         thisComp.clearForm()
@@ -56,7 +58,15 @@ class ScrapeForm extends Component {
         alert("An error occurred, please try again later.")
       }).then(() => this.setState({redirect: true}));
     }
+  }
 
+  identifySite() {
+    let data = this.state;
+    if (data.link.includes('yelp.com')) {
+      return 'yelp';
+    } else if (data.link.includes('indeed.com')) {
+      return 'indeed';
+    }
   }
 
   handleSubmit(event) {
@@ -138,6 +148,7 @@ class ScrapeForm extends Component {
     const {redirectLink} = this.state;
     const {scraping} = this.state;
     const {errors} = this.state;
+    const {site} = this.state;
 
     if (scraping) {
       return <div id="react-loader">
@@ -146,11 +157,15 @@ class ScrapeForm extends Component {
                 width="200"/> ...gathering data </div>
     }
     if (redirect) {
-      return <Redirect to={redirectLink}/>;
+      return <Redirect to={{
+        pathname: redirectLink,
+        state: {site: site}
+      }}/>;
     }
     return (
       <form onSubmit={this.handleSubmit}
             ref={(el) => this.scrapeCreateForm = el}>
+        <h3>Web Scraper <small>(This app currently only accepts yelp, and indeed links)</small></h3>
         <div className='form-group'>
           {errors === null ? "" :
             <label htmlFor='link'>
@@ -162,7 +177,7 @@ class ScrapeForm extends Component {
             name='link'
             value={link}
             className='form-control'
-            placeholder='Yelp Link'
+            placeholder='Link'
             ref={this.scrapeLinkRef}
             onChange={this.handleInputChange}
             required='required'/>

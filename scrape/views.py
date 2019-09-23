@@ -1,11 +1,10 @@
-from .models import Yelp, Results
 from rest_framework import generics, permissions, pagination
 from rest_framework.response import Response
 from .permissions import IsOwnerOrReadOnly
 from django.contrib.auth.models import User
-from .serializers import ResultsSerializer, ScrapeSerializer
-from .scripts.scrape_run import YelpScrape as Scrape
-from .scripts.text_analysis.analyze_text import ProcessCommon
+from .serializers import ScrapeSerializer, IndeedScrapeSerializer
+# from .scripts.text_analysis.analyze_text import ProcessCommon
+from .pipeline import *
 
 
 class ScrapePageNumberPagination(pagination.PageNumberPagination):
@@ -29,10 +28,17 @@ class ScrapePageNumberPagination(pagination.PageNumberPagination):
 
 
 class ScrapeDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
-    queryset            = Yelp.objects.all()
-    serializer_class    = ScrapeSerializer
-    lookup_field        = 'slug'
-    permission_classes  = [IsOwnerOrReadOnly]
+    queryset = Collect.objects.all()
+    # serializer_class = ScrapeSerializer
+    lookup_field = 'slug'
+    permission_classes = [IsOwnerOrReadOnly]
+
+    def get_serializer_class(self):
+        if 'yelp' in self.request.path:
+            return ScrapeSerializer
+        elif 'indeed' in self.request.path:
+            return IndeedScrapeSerializer
+        return -1  #
 
     def get_serializer_context(self):
         context = super().get_serializer_context()
@@ -41,18 +47,32 @@ class ScrapeDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
 
 
 class ScrapeListCreateAPIView(generics.ListCreateAPIView):
-    queryset            = Yelp.objects.all()
-    serializer_class    = ScrapeSerializer
-    permission_classes  = [permissions.AllowAny]
-    pagination_class    = ScrapePageNumberPagination
+    permission_classes = [permissions.AllowAny]
+    pagination_class = ScrapePageNumberPagination
+
+    def get_queryset(self):
+        if 'yelp' in self.request.path:
+            queryset = Collect.objects.filter(site='yelp')
+            return queryset
+        elif 'indeed' in self.request.path:
+            queryset = Collect.objects.filter(site='indeed')
+            return queryset
+        return -1  #
+
+    def get_serializer_class(self):
+        if 'yelp' in self.request.path:
+            return ScrapeSerializer
+        elif 'indeed' in self.request.path:
+            return IndeedScrapeSerializer
+        return -1  #
 
     def perform_create(self, serializer):
         anon = User.objects.get(username='scrapeAnon')
         if self.request.user.is_anonymous is True:
             serializer.save(user=anon)
-            Scrape(serializer.instance, serializer.instance.id).process_results()
-            # ProcessCommon(serializer.instance, serializer.instance.id).run()
         else:
             serializer.save(user=self.request.user)
-            Scrape(serializer.instance, serializer.instance.id).process_results()
-            # ProcessCommon(serializer.instance, serializer.instance.id).run()
+
+        run_flow(serializer.instance)
+
+

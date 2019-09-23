@@ -5,7 +5,7 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import RegexpTokenizer
 import pandas as pd
-from scrape.models import Yelp, Results, Analytics
+from scrape.models import Collect, YelpResults, Analytics
 from spacy.lang.en import English
 
 stop_words = set(stopwords.words('english'))
@@ -31,9 +31,9 @@ class AnalyzeText:
 
     def gather_data(self):
         """This gathers data from the database based on the object's slug"""
-        yelp_id = [x for x in Yelp.objects.filter(slug=self.biz_slug).values_list('id', flat=True)].pop()
+        yelp_id = [x for x in Collect.objects.filter(slug=self.biz_slug).values_list('id', flat=True)].pop()
 
-        results = [x.lower() for x in Results.objects.filter(business=yelp_id).values_list('review', flat=True)]
+        results = [x.lower() for x in YelpResults.objects.filter(business=yelp_id).values_list('review', flat=True)]
 
         return ' '.join(results)
 
@@ -83,7 +83,7 @@ class ProcessCommon(AnalyzeText):
     def upload_results(self):
         for result in self.results:
             # add some custom validation\parsing for some of the fields
-            yelp_obj = Yelp.objects.get(id=self.instance_id)
+            yelp_obj = Collect.objects.get(id=self.instance_id)
             instance = Analytics(business=yelp_obj, word=result[0], value=result[1])
             try:
                 instance.save()

@@ -1,0 +1,13 @@
+{
+  "sites": {
+    "yelp": {
+      "pattern": "www.yelp.com"
+    },
+    "glassdoor": {
+      "pattern": "www.glassdoor.com"
+    },
+    "indeed": {
+      "pattern": "www.indeed.com"
+    }
+  }
+}

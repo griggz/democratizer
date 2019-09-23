@@ -35,7 +35,7 @@ body {
   font-family: "Raleway", Helvetica, Verdana, sans-serif;
   font-size: 2rem;
   font-weight: 400;
-  max-width: calc(1.5em + 75rem + 2px);
+  width: 100%;
 }
 .comms p {
   font-size: 1.5rem;
@@ -87,7 +87,7 @@ body {
 
 .scrape_form {
   width: 100%;
-  padding-top: 5rem;
+  padding-top: 2rem;
 }
 
 #register {

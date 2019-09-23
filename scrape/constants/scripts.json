@@ -1,0 +1,3 @@
+ "scripts": {
+    "collectstatic": "python ../manage.py collectstatic --no-input"
+  },

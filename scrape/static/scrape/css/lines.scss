@@ -1,0 +1,119 @@
+//Activate this code using the options below:
+//h2.side-lines.side-lines--single Single Lines
+//h2.side-lines.side-lines--double Double Lines
+//h2.side-lines.side-lines--striped Striped Lines
+//h2.side-lines.side-lines--checkered Checkered Lines
+//h2.side-lines.side-lines--snake Snake Lines
+:root {
+  --sl-pad:   1rem;
+  --sl-clr:   #00bbff;
+  --txt-clr:  black;
+  --txt-size: 1.75rem;
+}
+
+//Colors
+$neon-blue: #00bbff;
+$backing: #18181E;
+$neon-pink: #e83e8c;
+
+* {
+  box-sizing: border-box;
+}
+
+@mixin snake-animation($size) {
+  animation: move 0.5s linear infinite forwards;
+
+  @keyframes move {
+    to { background-position: $size $size }
+  }
+}
+
+@mixin side-lines($type: single, $size: 2) {
+  $pxSize: $size * 1px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  text-align: center;
+
+  &:before,
+  &:after {
+    content: '';
+    flex: 1;
+    width: 100%;
+    height: $pxSize;
+
+    @if $type == single {
+      background-color: var(--sl-clr);
+    }
+
+    @else if $type == double {
+      $border: $pxSize solid var(--sl-clr);
+
+      height: $pxSize * 2;
+      border-top: $border;
+      border-bottom: $border;
+    }
+
+    @else if $type == striped {
+      height: $pxSize * 2;
+      background: repeating-linear-gradient(
+        45deg,
+        var(--sl-clr),
+        var(--sl-clr) $pxSize,
+        transparent $pxSize,
+        transparent $pxSize * 2
+      );
+    }
+
+    @else if $type == checkered {
+      $patternSize: $pxSize / 2;
+
+      background:
+        linear-gradient(45deg,  var(--sl-clr) 25%, transparent 25%),
+        linear-gradient(315deg, var(--sl-clr) 25%, transparent 25%),
+        linear-gradient(225deg, var(--sl-clr) 25%, transparent 25%),
+        linear-gradient(135deg, var(--sl-clr) 25%, transparent 25%);
+      background-size: $patternSize $patternSize;
+    }
+
+    @else if $type == snake {
+      @include snake-animation($pxSize);
+      height: $pxSize / 1.5;
+      background:
+        radial-gradient(
+          circle at 100% 100%,
+          transparent 30%,
+          var(--sl-clr) 30%,
+          var(--sl-clr) 45%,
+          transparent 45%,
+          transparent
+        ),
+        radial-gradient(
+          circle at 0 0,
+          transparent 25%,
+          var(--sl-clr) 25%,
+          var(--sl-clr) 40%,
+          transparent 40%,
+          transparent
+        );
+      background-size: $pxSize $pxSize;
+    }
+  }
+
+  &:before { margin-right: var(--sl-pad) }
+  &:after  { margin-left:  var(--sl-pad) }
+}
+
+.side-lines {
+  margin: 2rem 0;
+  font-size: var(--txt-size);
+  color: var(--txt-clr);
+
+  &--single    { @include side-lines() }
+  &--double    { @include side-lines(double) }
+  &--striped   { @include side-lines(striped, 6) }
+  &--checkered { @include side-lines(checkered, 24) }
+  &--snake     { @include side-lines(snake, 24) }
+}
